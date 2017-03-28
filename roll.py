@@ -48,15 +48,15 @@ def sevenroll(poolsize,skillpool):
 
 
 def countraises(diceroll, raises, target, skillpool):
-    while sum(diceroll) >= 10:
-        raises, diceroll =raisetens(diceroll, raises, 10)
+    while sum(diceroll) >= target:
+        raises, diceroll =raisetens(diceroll, raises, target)
         print "Tens: %r: %r" % (raises, diceroll)
-        raises, diceroll = raisepairs(diceroll, raises, 10)
+        raises, diceroll = raisepairs(diceroll, raises, target)
         print "Pairs: %r: %r" % (raises, diceroll)
-        raises, diceroll = raisetrios(diceroll, raises, 10)
+        raises, diceroll = raisetrios(diceroll, raises, target)
         print "Trios: %r: %r" % (raises, diceroll)
         dicetally = len(diceroll)
-        if (dicetally > 1 and sum(diceroll) >= 10):
+        if (dicetally > 1 and sum(diceroll) >= target):
             diceroll[0]= diceroll[0] + diceroll[dicetally -1]
             diceroll.pop(dicetally - 1)
             print "update: %r:%r" % (raises, diceroll)
